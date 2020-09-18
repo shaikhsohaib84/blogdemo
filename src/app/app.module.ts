@@ -8,13 +8,15 @@ import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SigninComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
