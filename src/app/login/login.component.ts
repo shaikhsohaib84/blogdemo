@@ -70,7 +70,7 @@ import { Component, OnInit } from '@angular/core';
       width:100%;
       height:auto;
     }
-    @media only all and (max-width:767px){
+    @media all and (max-width:767px){
       .is-content
       {
         display:contents !important;
