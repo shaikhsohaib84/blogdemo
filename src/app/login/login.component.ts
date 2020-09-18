@@ -41,7 +41,7 @@ import { Component, OnInit } from '@angular/core';
           </div>
         </div>
 
-        <div class="col">
+        <div class="col is-content">
           <img class = "responsive-img" src="assets/image/signin.svg"  width="500" height="auto" alt="side image">
         </div>
       </div>
@@ -69,6 +69,12 @@ import { Component, OnInit } from '@angular/core';
     .responsive-img{
       width:100%;
       height:auto;
+    }
+    @media only all and (max-width:767px){
+      .is-content
+      {
+        display:contents !important;
+      }
     }
   `]
 })

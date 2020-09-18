@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
         <h6>get your ultimate latest article on all stuff.</h6>
         <hr>
         <div class="row">
+          
           <div class="col">
             <div class="form-group">
               <label for="Name">First Name</label>
@@ -84,7 +85,7 @@ import { Component, OnInit } from '@angular/core';
           </div>
       
 
-        <div class="col">
+        <div class="col is-content">
           <img class="responsive-img" src="assets/image/signup.svg" width="500" height="auto" alt="side image">
         </div>
       </div>
@@ -105,9 +106,18 @@ import { Component, OnInit } from '@angular/core';
   hr{
     border-top: 1px solid #FF8C00!important;
   }
+  .col-disabled{
+    flex-grow: 0;
+  }
   .responsive-img{
       width:100%;
       height:auto;
+    }
+    @media only all and (max-width:767px){
+      .is-content
+      {
+        display:contents !important;
+      }
     }
   `]
 })
