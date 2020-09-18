@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-header',
   template: `
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
     <!--navbar-->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <!--logo-->
