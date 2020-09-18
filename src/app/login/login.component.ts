@@ -70,7 +70,7 @@ import { Component, OnInit } from '@angular/core';
       width:100%;
       height:auto;
     }
-    @media screen and (max-width:427px){
+    @media screen and (max-width:767px)){
       .is-content
       {
         display:contents;
