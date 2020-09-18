@@ -41,7 +41,7 @@ import { Component, OnInit } from '@angular/core';
     .bg{
       color: #ffffff!important;
       background-color: darkorange;
-      border-radius: 50% 20% / 10% 40%;
+      border-radius: 15px;
     }
   `]
 })
