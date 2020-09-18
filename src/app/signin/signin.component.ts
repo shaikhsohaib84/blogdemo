@@ -85,7 +85,7 @@ import { Component, OnInit } from '@angular/core';
       
 
         <div class="col">
-          <img src="assets/image/signup.svg" width="500" height="auto" alt="side image">
+          <img class="responsive-img" src="assets/image/signup.svg" width="500" height="auto" alt="side image">
         </div>
       </div>
       <hr>
@@ -105,6 +105,10 @@ import { Component, OnInit } from '@angular/core';
   hr{
     border-top: 1px solid #FF8C00!important;
   }
+  .responsive-img{
+      width:100%;
+      height:auto;
+    }
   `]
 })
 export class SigninComponent implements OnInit {
