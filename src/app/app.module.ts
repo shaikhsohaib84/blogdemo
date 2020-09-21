@@ -9,19 +9,23 @@ import { LoginComponent } from './login/login.component';
 
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { AddpostComponent } from './addpost/addpost.component';
 
+import { EditorModule } from '@tinymce/tinymce-angular';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SigninComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AddpostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

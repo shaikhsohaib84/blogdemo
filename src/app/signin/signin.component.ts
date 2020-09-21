@@ -1,14 +1,16 @@
+import { BindingFlags } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-signin',
   template: `
+ 
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     <div class="container">
-      <form #signinform="ngForm">
+      <form #signinform="ngForm" (ngSubmit)="passwordmatch()">
         <h1>Save Your account now</h1>
-        <h6>get your ultimate latest article on all stuff.</h6>
+        <h6>get your ultimate latest article.</h6>
         <hr>
         <div class="row">
           
@@ -16,6 +18,7 @@ import { Component, OnInit } from '@angular/core';
             <div class="form-group">
               <label for="Name">First Name</label>
               <input type="text" 
+              ngModel pattern="[a-zA-Z ]*"
               name="firstname" 
               class="form-control" 
               id="firstname"
@@ -23,7 +26,7 @@ import { Component, OnInit } from '@angular/core';
               [(ngModel)]="firstname"
               #firstnameinput="ngModel"
               required>
-              <div class="alert alert-danger" role="alert" *ngIf="firstnameinput.invalid && firstnameinput.touched">
+              <div class="alert" role="alert" *ngIf="firstnameinput.invalid && firstnameinput.touched">
                 First name Required!
               </div>   
             </div>
@@ -31,15 +34,17 @@ import { Component, OnInit } from '@angular/core';
             <div class="form-group">
               <label for="Name">Last Name</label>
               <input type="text" 
-              name="lastname"
-              [(ngModel)]="lastname"
+              ngModel pattern="[a-zA-Z ]*"
+              name="lastname" 
               class="form-control" 
-              placeholder="doe"
+              id="lastname"
+              placeholder="jhon"
               [(ngModel)]="lastname"
-              #lastnameinput = "ngModel"> 
-              <div class="alert alert-danger" role="alert" *ngIf="lastnameinput.invalid && lastnameinput.touched">
+              #lastnameinput="ngModel"
+              required>
+              <div class="alert" role="alert" *ngIf="lastnameinput.invalid && lastnameinput.touched">
                 Last name Required!
-              </div>
+              </div>   
             </div>
           
 
@@ -47,12 +52,13 @@ import { Component, OnInit } from '@angular/core';
               <label for="email">Email</label>
               <input type="email" 
               name="email"
+              ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
               class="form-control" 
               placeholder="jhondoe@gmail.com" 
               required email
               [(ngModel)]="email"
               #emailinput="ngModel">
-              <div class="alert alert-danger" role="alert" *ngIf="emailinput.invalid && emailinput.touched">
+              <div class="alert" role="alert" *ngIf="emailinput.invalid && emailinput.touched">
                 Email Required!
               </div> 
             </div>
@@ -60,13 +66,14 @@ import { Component, OnInit } from '@angular/core';
             <div class="form-group">
               <label for="password">Password</label>
               <input type="password" 
+              ngModel pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$"
               class="form-control" 
               name="password"
               [(ngModel)]="password"
               #passwordinput="ngModel"
               required>
-              <div class="alert alert-danger" role="alert" *ngIf="passwordinput.invalid && passwordinput.touched">
-                we will not share your password!
+              <div class="alert" role="alert" *ngIf="passwordinput.invalid && passwordinput.touched">
+                password requires minimum 8 character. one upper-case, lower-case and number!
               </div> 
             </div>
 
@@ -78,7 +85,7 @@ import { Component, OnInit } from '@angular/core';
               [(ngModel)]="confirmpassword"
               #confirmpasswordinput = "ngModel"
               required> 
-              <div class="alert alert-danger" role="alert" *ngIf="confirmpasswordinput.invalid && confirmpasswordinput.touched">
+              <div class="alert" role="alert" *ngIf="confirmpasswordinput.invalid && confirmpasswordinput.touched">
                 come on, we will not share your password!
               </div>
             </div>
@@ -102,6 +109,10 @@ import { Component, OnInit } from '@angular/core';
   }
   .container{
     padding:50px;
+  }
+  .alert{
+    color:red !important;
+    padding-left: 0px;
   }
   hr{
     border-top: 1px solid #FF8C00!important;
@@ -128,8 +139,23 @@ export class SigninComponent implements OnInit {
   password:string;
   confirmpassword:string;
   constructor() { }
-
+  
   ngOnInit(): void {
   }
-
+  passwordmatch(){
+    if(this.password != this.confirmpassword){
+      const flag = true;
+      return flag;
+    }
+    else{
+      const flag = false;
+      return flag;
+    }
+  }
+  processForm(){
+    // var mailformat = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+    // if(this.email.match(mailformat)){
+    //   alert("valid email")
+    // }
+  }
 }

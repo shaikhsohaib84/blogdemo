@@ -17,6 +17,11 @@ import { Component, OnInit } from '@angular/core';
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto"> 
           <li class="nav-item"> 
+              <a class="nav-link" routerLink="/addpost"> 
+                Post +
+              </a> 
+          </li>
+          <li class="nav-item"> 
               <a class="nav-link" routerLink="/login"> 
                 SignIn 
               </a> 
