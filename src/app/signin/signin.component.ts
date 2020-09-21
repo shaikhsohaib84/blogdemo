@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     <div class="container">
-      <form #signinform="ngForm" (ngSubmit)="passwordmatch()">
+      <form #signinform="ngForm" (ngSubmit)="processForm()" (ngSubmit)="passwordmatch()">
         <h1>Save Your account now</h1>
         <h6>get your ultimate latest article.</h6>
         <hr>
@@ -71,10 +71,12 @@ import { Component, OnInit } from '@angular/core';
               name="password"
               [(ngModel)]="password"
               #passwordinput="ngModel"
+              
               required>
               <div class="alert" role="alert" *ngIf="passwordinput.invalid && passwordinput.touched">
                 password requires minimum 8 character. one upper-case, lower-case and number!
               </div> 
+              {{password}}
             </div>
 
             <div class="form-group">
@@ -84,10 +86,15 @@ import { Component, OnInit } from '@angular/core';
               name="confirmpassword"
               [(ngModel)]="confirmpassword"
               #confirmpasswordinput = "ngModel"
+              #flag="ngModel"
               required> 
               <div class="alert" role="alert" *ngIf="confirmpasswordinput.invalid && confirmpasswordinput.touched">
                 come on, we will not share your password!
               </div>
+              <div class="alert" role="alert" *ngIf="!flag">
+                password mismatch!
+              </div>
+              {{confirmpassword}}
             </div>
           </div>
       
@@ -138,24 +145,20 @@ export class SigninComponent implements OnInit {
   email:string;
   password:string;
   confirmpassword:string;
+  flag:boolean=false;
   constructor() { }
   
   ngOnInit(): void {
   }
   passwordmatch(){
-    if(this.password != this.confirmpassword){
-      const flag = true;
-      return flag;
+    if(this.password == this.confirmpassword){
+      this.flag = true;
     }
     else{
-      const flag = false;
-      return flag;
+      this.flag = false;
     }
   }
   processForm(){
-    // var mailformat = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-    // if(this.email.match(mailformat)){
-    //   alert("valid email")
-    // }
+    alert(this.firstname+" "+this.lastname+ " your account has been created successfully.")
   }
 }
